@@ -3,4 +3,21 @@ const Schema = mongoose.Schema
 
 // Aquí el esquema
 
-module.exports = mongoose.model('Park', parkSchema)
+const parkSchema = new Schema(
+    {
+        name: String,
+        description: String,
+        active: Boolean
+    },
+    {
+        timestamps: {
+          createdAt: "createdAt",
+          updatedAt: "updatedAt"
+        }
+
+    });
+
+
+const Park = mongoose.model('Park',parkSchema)
+
+module.exports = Park;
